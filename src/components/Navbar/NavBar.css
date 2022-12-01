@@ -1,0 +1,10 @@
+ul .active {
+   background: #B78E8E;
+    border-radius: 5px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    /*border-radius: 50%;*/
+}
