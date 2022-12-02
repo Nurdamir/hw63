@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import axiosApi from "../../axiosApi";
+import {useParams} from "react-router-dom";
 import PostForm from "../../components/PostForm/PostForm";
 import {Post, PostApi} from "../../types";
-import {useNavigate, useParams} from "react-router-dom";
-import axiosApi from "../../axiosApi";
 
 const Add = () => {
   const {id} = useParams();
@@ -32,13 +32,6 @@ const Add = () => {
 
     }
   };
-
-
-
-
-  console.log(existingPost);
-
-
 
   return (
     <div className="row mt-2">

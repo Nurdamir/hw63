@@ -1,14 +1,14 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {Post, PostApi} from "../../types";
+import React, {useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import AxiosApi from "../../axiosApi";
+import {PostApi} from "../../types";
 
 interface Props {
   onSubmitForm: (post: PostApi) => void;
   existingPost?: PostApi;
 }
 
-const PostForm: React.FC<Props> = ({onSubmitForm, existingPost}) => {
+const PostForm: React.FC<Props> = ({existingPost}) => {
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -21,24 +21,6 @@ const PostForm: React.FC<Props> = ({onSubmitForm, existingPost}) => {
   }
 
   const [post, setPost] = useState<PostApi>(initialState);
-
-  // const fetchData = useCallback(async () => {
-  //   try {
-  //     const responsePost = await AxiosApi.get<Post>('/posts/' + id + '.json');
-  //     if (responsePost.data !== null) {
-  //       setPost(responsePost.data)
-  //     }
-  //   } finally {
-  //
-  //   }
-  // }, []);
-  //
-  // useEffect(() => {
-  //   fetchData().catch(console.error)
-  // }, [fetchData]);
-
-
-
 
   const onPostChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target;
@@ -62,18 +44,13 @@ const PostForm: React.FC<Props> = ({onSubmitForm, existingPost}) => {
         navigate('/');
       }
     }
-    //
-    // console.log(post);
-    //
-    //
-    // onSubmitForm(post);
   };
 
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form className="w-75" onSubmit={onFormSubmit}>
       <h4>{existingPost ? 'Edit post' : 'Add new post'}</h4>
-      <div className="form-group">
+      <div className="form-group form">
         <label htmlFor="title">Title</label>
         <input
           id="title"

@@ -1,8 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import axiosApi from "../../axiosApi";
-import FullPost from "../../components/FullPost/FullPost";
+import FullPost from "./FullPost";
 import {PostApi} from "../../types";
+import Spinner from "../Spinner/Spinner";
 
 const OnePost = () => {
   const {id} = useParams();
@@ -12,13 +13,15 @@ const OnePost = () => {
     description: '',
     dateTime: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const fetchOnePost = useCallback(async (id: string) => {
+    setLoading(true);
     try {
       const postResponse = await axiosApi.get<PostApi>('/posts/' + id + '.json');
       setPost(postResponse.data);
     } finally {
-
+      setLoading(false);
     }
   }, []);
 
@@ -45,17 +48,15 @@ const OnePost = () => {
     }
   }
 
-
-
   return (
     <div className="row mt-2">
       <div className="col">
-        {<FullPost post={post} onRemoveBtn={() => onRemovePost(id!)} onEditBtn={() => updatePost(id!)}/>}
-
-        {/*{post && (*/}
-        {/*  <PostForm onSubmit={} existingPost={post}/>*/}
-        {/*)}*/}
-
+        {loading ? <Spinner/> : (
+          <FullPost
+            post={post}
+            onRemoveBtn={() => onRemovePost(id!)}
+            onEditBtn={() => updatePost(id!)}/>
+        )}
       </div>
     </div>
 );
