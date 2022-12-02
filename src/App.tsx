@@ -2,11 +2,14 @@ import React from 'react';
 import './App.css';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import {Routes, Route} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Home from "./containers/Home/Home";
 import About from "./containers/About/About";
 import Contacts from "./containers/Contacts/Contacts";
 import Add from "./containers/Add/Add";
+import FullPost from "./components/FullPost/FullPost";
+import OnePost from "./containers/OnePost/OnePost";
+import AddForm from "./components/AddForm/AddForm";
 
 function App() {
   return (
@@ -19,7 +22,15 @@ function App() {
           <Route path="/" element={(
             <Home/>
           )}/>
-          <Route path={"/add"} element={(
+          <Route path={"/posts/add"} element={(
+            <AddForm/>
+          )}/>
+
+          <Route path="/post/:id" element={(
+            <OnePost/>
+          )}/>
+
+          <Route path="/post/:id/edit" element={(
             <Add/>
           )}/>
 

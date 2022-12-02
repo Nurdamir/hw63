@@ -5,7 +5,7 @@ import './NavBar.css';
 const Navbar: React.FC = () => {
   const [navItems] = useState([
     {name: 'Home', route: '/'},
-    {name: 'Add', route: '/add'},
+    {name: 'Add', route: '/posts/add'},
     {name: 'About', route: '/about'},
     {name: 'Contacts', route: '/contacts'},
   ]);
