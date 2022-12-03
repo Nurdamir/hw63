@@ -10,7 +10,7 @@ interface Props {
 const FullPost: React.FC<Props> = ({post, onRemoveBtn, onEditBtn}) => {
 
   return (
-    <div>
+    <div className="card card-body border-dark">
       <p>{post.title}</p>
       <p>{post.dateTime}</p>
       <p>{post.description}</p>

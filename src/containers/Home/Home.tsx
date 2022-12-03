@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div className="d-flex justify-content-around">
-      <div>
+      <div className="me-2">
         {loading ? <Spinner/> : (
           posts.map((post) => (
               <PostItem key={Math.random()} date={post.dateTime} title={post.title} onClick={() => onBtnReadMoreClick(post.id)}/>

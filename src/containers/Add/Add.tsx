@@ -34,7 +34,7 @@ const Add = () => {
   };
 
   return (
-    <div className="row mt-2">
+    <div className="row card card-body border-dark">
       <div className="col">
         {existingPost && (
           <PostForm onSubmitForm={(post: PostApi) => createPost(post)} existingPost={existingPost!}/>)}

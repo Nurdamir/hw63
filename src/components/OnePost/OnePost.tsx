@@ -49,7 +49,7 @@ const OnePost = () => {
   }
 
   return (
-    <div className="row mt-2">
+    <div className="row">
       <div className="col-7">
         {loading ? <Spinner/> : (
           <FullPost
@@ -59,7 +59,6 @@ const OnePost = () => {
         )}
       </div>
       <div className="col-5"><Outlet/></div>
-
     </div>
 );
 };

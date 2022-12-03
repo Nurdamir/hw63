@@ -29,6 +29,9 @@ function App() {
           <Route path={"/posts/add"} element={(
             <AddForm/>
           )}/>
+          <Route path="/post/:id/edit" element={(
+            <Add/>
+          )}/>
           <Route path="/about" element={(
             <About/>
           )}/>
