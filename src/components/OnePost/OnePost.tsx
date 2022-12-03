@@ -39,8 +39,8 @@ const OnePost = () => {
     try {
       await axiosApi.delete('/posts/' + id + '.json');
       navigate('/');
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      throw new Error();
     } finally {
       navigate('/');
     }

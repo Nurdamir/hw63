@@ -8,8 +8,8 @@ const AddForm = () => {
   const updatePost = async (post: PostApi) => {
     try {
       await axiosApi.put('/posts.json', post);
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      throw new Error();
     }
   };
 

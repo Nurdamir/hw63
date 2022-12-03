@@ -28,7 +28,7 @@ const Add = () => {
     try {
       await axiosApi.post('/posts.json', post);
     } catch (e) {
-      console.error(e);
+      throw new Error();
     }
   };
 
