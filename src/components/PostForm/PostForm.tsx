@@ -34,12 +34,16 @@ const PostForm: React.FC<Props> = ({existingPost}) => {
     if (id) {
       try {
         await AxiosApi.put('/posts/' + id + '.json', post)
-      } finally {
+      } catch (error) {
+        console.error(error);
+      }  finally {
         navigate('/');
       }
     } else {
       try {
         await AxiosApi.post('/posts.json', post);
+      } catch (error) {
+        console.error(error);
       } finally {
         navigate('/');
       }

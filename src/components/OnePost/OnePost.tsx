@@ -32,17 +32,15 @@ const OnePost = () => {
   }, [id, fetchOnePost]);
 
   const updatePost = async (id: string) => {
-    try {
       navigate('/posts/' + id + '/edit');
-    } finally {
-
-    }
   };
 
   const onRemovePost = async (id: string) => {
     try {
       await axiosApi.delete('/posts/' + id + '.json');
       navigate('/');
+    } catch (error) {
+      console.error(error);
     } finally {
       navigate('/');
     }
