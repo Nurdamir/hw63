@@ -38,7 +38,6 @@ const Add = () => {
       <div className="col">
         {existingPost && (
           <PostForm onSubmitForm={(post: PostApi) => createPost(post)} existingPost={existingPost!}/>)}
-
       </div>
     </div>
   );

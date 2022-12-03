@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
+import {Outlet, useNavigate, useParams} from "react-router-dom";
 import axiosApi from "../../axiosApi";
 import FullPost from "./FullPost";
 import {PostApi} from "../../types";
@@ -33,7 +33,7 @@ const OnePost = () => {
 
   const updatePost = async (id: string) => {
     try {
-      navigate('/post/' + id + '/edit');
+      navigate('/posts/' + id + '/edit');
     } finally {
 
     }
@@ -50,7 +50,7 @@ const OnePost = () => {
 
   return (
     <div className="row mt-2">
-      <div className="col">
+      <div className="col-7">
         {loading ? <Spinner/> : (
           <FullPost
             post={post}
@@ -58,6 +58,8 @@ const OnePost = () => {
             onEditBtn={() => updatePost(id!)}/>
         )}
       </div>
+      <div className="col-5"><Outlet/></div>
+
     </div>
 );
 };

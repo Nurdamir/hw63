@@ -21,23 +21,14 @@ function App() {
           <Route path="/" element={(
             <Home/>
           )}/>
-
-          <Route path="/posts" element={(
-            <Home/>
-          )}/>
-
+          <Route path="/posts" element={(<Home/>)}>
+            <Route path="/posts/:id" element={(<OnePost/>)}>
+              <Route path="/posts/:id/edit" element={(<Add/>)}/>
+            </Route>
+          </Route>
           <Route path={"/posts/add"} element={(
             <AddForm/>
           )}/>
-
-          <Route path="/post/:id" element={(
-            <OnePost/>
-          )}/>
-
-          <Route path="/post/:id/edit" element={(
-            <Add/>
-          )}/>
-
           <Route path="/about" element={(
             <About/>
           )}/>

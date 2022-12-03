@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
+import {Outlet, useLocation, useNavigate} from "react-router-dom";
 import axiosApi from "../../axiosApi";
 import Spinner from "../../components/Spinner/Spinner";
 import PostItem from "../../components/PostItem/PostItem";
@@ -37,11 +37,11 @@ const Home = () => {
   }, [fetchPosts, location]);
 
   const onBtnReadMoreClick = (id: string) => {
-    navigate('/post/' + id + "/edit");
+    navigate('/posts/' + id);
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-around">
       <div>
         {loading ? <Spinner/> : (
           posts.map((post) => (
@@ -49,6 +49,7 @@ const Home = () => {
             ))
         )}
       </div>
+        <Outlet/>
     </div>
   );
 };

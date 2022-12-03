@@ -14,8 +14,8 @@ const FullPost: React.FC<Props> = ({post, onRemoveBtn, onEditBtn}) => {
       <p>{post.title}</p>
       <p>{post.dateTime}</p>
       <p>{post.description}</p>
-      <button className="btn btn-primary" onClick={onEditBtn}>Edit post</button>
-      <button className="btn btn-warning" onClick={onRemoveBtn}>Remove</button>
+      <button className="btn btn-primary mb-2 me-1" onClick={onEditBtn}>Edit post</button>
+      <button className="btn btn-warning mb-2" onClick={onRemoveBtn}>Remove</button>
     </div>
   );
 };
